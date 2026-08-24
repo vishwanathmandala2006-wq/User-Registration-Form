@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Competitive Examination Registration Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="valid.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Online Competitive Examination Registration</h2>
+
+    <form id="registrationForm">
+      <label>First Name</label>
+      <input type="text" required>
+
+      <label>Middle Name</label>
+      <input type="text">
+
+      <label>Last Name</label>
+      <input type="text" required>
+
+      <label>Father Name</label>
+      <input type="text" required>
+
+      <label>Mother Name</label>
+      <input type="text" required>
+
+      <label>Date of Birth</label>
+      <input type="date" required>
+
+      <label>Gender</label>
+      <input type="radio" name="gender" value="Male"> Male
+      <input type="radio" name="gender" value="Female"> Female
+      <input type="radio" name="gender" value="Others"> Others
+
+      <label>Highest Education Pursued</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Phone Number</label>
+      <input type="tel" pattern="[0-9]{10}" required>
+
+      <label>Upload Recent Passport Size Photo</label>
+      <input type="file" name="Photo" accept="image/*" required>
+
+      <label>Upload Signature</label>
+      <input type="file" name="Signature" accept="image/*" required>
+
+      <button type="submit">Register</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    
+    <div id="message"></div>
+
+  </div>
+</body>
+</html>

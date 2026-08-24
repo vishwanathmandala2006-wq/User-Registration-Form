@@ -1,0 +1,100 @@
+:root {
+  --dark-blue: #2E4052;
+  --light-teal: #A5C9CA;
+  --cream: #F0E5D8;
+  --mustard: #D9BF77;
+  --rust: #C84B31;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: var(--cream);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 500px;
+  margin: 50px auto;
+  background-color: var(--light-teal);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(46, 64, 82, 0.3);
+}
+
+h2 {
+  text-align: center;
+  color: var(--dark-blue);
+  border-bottom: 3px solid var(--mustard);
+  padding-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--dark-blue);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="file"] {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid var(--dark-blue);
+  border-radius: 4px;
+  background-color: var(--cream);
+}
+
+input[type="radio"] {
+  margin-left: 10px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+}
+
+button[type="submit"] {
+  background-color: var(--rust);
+}
+
+button[type="reset"] {
+  background-color: var(--mustard);
+  color: var(--dark-blue);
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#message {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px solid var(--dark-blue);
+  border-radius: 5px;
+  background-color: var(--mustard);
+  color: var(--dark-blue);
+  display: none;
+}
+
+#message h3 {
+  margin: 0;
+  color: var(--rust);
+}
+#message img {
+  border: 1px solid var(--dark-blue);
+  border-radius: 4px;
+  background: #fff;
+}
