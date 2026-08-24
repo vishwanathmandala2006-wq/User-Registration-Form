@@ -1,24 +1,25 @@
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // prevent default form submission
+    event.preventDefault();
 
     // Collect form values
-    let firstName = document.querySelector("input[required][type='text']").value;
-    let middleName = document.querySelectorAll("input[type='text']")[1].value;
-    let lastName = document.querySelectorAll("input[type='text']")[2].value;
-    let fatherName = document.querySelectorAll("input[type='text']")[3].value;
-    let motherName = document.querySelectorAll("input[type='text']")[4].value;
-    let dob = document.querySelector("input[type='date']").value;
-    let gender = document.querySelector("input[name='gender']:checked")?.value || "Not Selected";
-    let education = document.querySelectorAll("input[type='text']")[5].value;
-    let email = document.querySelector("input[type='email']").value;
-    let phone = document.querySelector("input[type='tel']").value;
+    const textInputs = document.querySelectorAll("input[type='text']");
+    const firstName = textInputs[0].value.trim();
+    const middleName = textInputs[1].value.trim();
+    const lastName = textInputs[2].value.trim();
+    const fatherName = textInputs[3].value.trim();
+    const motherName = textInputs[4].value.trim();
+    const dob = document.querySelector("input[type='date']").value;
+    const gender = document.querySelector("input[name='gender']:checked")?.value || "Not Selected";
+    const education = textInputs[5].value.trim();
+    const email = document.querySelector("input[type='email']").value.trim();
+    const phone = document.querySelector("input[type='tel']").value.trim();
 
     // File inputs
-    let photoFile = document.querySelector("input[name='Photo']").files[0];
-    let signatureFile = document.querySelector("input[name='Signature']").files[0];
+    const photoFile = document.querySelector("input[name='Photo']").files[0];
+    const signatureFile = document.querySelector("input[name='Signature']").files[0];
 
     // Basic validation
-    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if (!email.match(emailPattern)) {
         alert("Please enter a valid email address.");
         return;
@@ -29,33 +30,40 @@ document.getElementById("registrationForm").addEventListener("submit", function(
         return;
     }
 
-    let today = new Date();
-    let birthDate = new Date(dob);
-    if (birthDate >= today) {
+    const today = new Date();
+    const birthDate = new Date(`${dob}T00:00:00`);
+    if (Number.isNaN(birthDate.getTime()) || birthDate >= today) {
         alert("Date of Birth must be in the past.");
         return;
     }
 
     // Display success message with details
-    let messageBox = document.getElementById("message");
+    const messageBox = document.getElementById("message");
     messageBox.style.display = "block";
     messageBox.style.color = "green";
 
-    let photoPreview = photoFile ? `<img src="${URL.createObjectURL(photoFile)}" alt="Photo" style="max-width:100px; margin:5px;">` : "";
-    let signaturePreview = signatureFile ? `<img src="${URL.createObjectURL(signatureFile)}" alt="Signature" style="max-width:100px; margin:5px;">` : "";
+    const photoPreview = photoFile ? `<img src="${URL.createObjectURL(photoFile)}" alt="Photo" style="max-width:100px; margin:5px;">` : "";
+    const signaturePreview = signatureFile ? `<img src="${URL.createObjectURL(signatureFile)}" alt="Signature" style="max-width:100px; margin:5px;">` : "";
+    const escapeHtml = (value) => value.replace(/[&<>'"]/g, (character) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        "\"": "&quot;"
+    }[character]));
 
     messageBox.innerHTML = `
         <h3>Registration Successful!</h3>
-        <p><strong>First Name:</strong> ${firstName}</p>
-        <p><strong>Middle Name:</strong> ${middleName}</p>
-        <p><strong>Last Name:</strong> ${lastName}</p>
-        <p><strong>Father Name:</strong> ${fatherName}</p>
-        <p><strong>Mother Name:</strong> ${motherName}</p>
-        <p><strong>Date of Birth:</strong> ${dob}</p>
-        <p><strong>Gender:</strong> ${gender}</p>
-        <p><strong>Education:</strong> ${education}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>First Name:</strong> ${escapeHtml(firstName)}</p>
+        <p><strong>Middle Name:</strong> ${escapeHtml(middleName)}</p>
+        <p><strong>Last Name:</strong> ${escapeHtml(lastName)}</p>
+        <p><strong>Father Name:</strong> ${escapeHtml(fatherName)}</p>
+        <p><strong>Mother Name:</strong> ${escapeHtml(motherName)}</p>
+        <p><strong>Date of Birth:</strong> ${escapeHtml(dob)}</p>
+        <p><strong>Gender:</strong> ${escapeHtml(gender)}</p>
+        <p><strong>Education:</strong> ${escapeHtml(education)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Phone:</strong> ${escapeHtml(phone)}</p>
         <p><strong>Photo:</strong><br>${photoPreview}</p>
         <p><strong>Signature:</strong><br>${signaturePreview}</p>
     `;
