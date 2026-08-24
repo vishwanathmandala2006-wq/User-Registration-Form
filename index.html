@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Online Competitive Examination Registration Form</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="valid.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -14,37 +14,37 @@
     <h2>Online Competitive Examination Registration</h2>
 
     <form id="registrationForm">
-      <label>First Name</label>
-      <input type="text" required>
+      <label for="firstName">First Name</label>
+      <input id="firstName" name="firstName" type="text" required>
 
-      <label>Middle Name</label>
-      <input type="text">
+      <label for="middleName">Middle Name</label>
+      <input id="middleName" name="middleName" type="text">
 
-      <label>Last Name</label>
-      <input type="text" required>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" name="lastName" type="text" required>
 
-      <label>Father Name</label>
-      <input type="text" required>
+      <label for="fatherName">Father Name</label>
+      <input id="fatherName" name="fatherName" type="text" required>
 
-      <label>Mother Name</label>
-      <input type="text" required>
+      <label for="motherName">Mother Name</label>
+      <input id="motherName" name="motherName" type="text" required>
 
-      <label>Date of Birth</label>
-      <input type="date" required>
+      <label for="dateOfBirth">Date of Birth</label>
+      <input id="dateOfBirth" name="dateOfBirth" type="date" required>
 
       <label>Gender</label>
-      <input type="radio" name="gender" value="Male"> Male
-      <input type="radio" name="gender" value="Female"> Female
-      <input type="radio" name="gender" value="Others"> Others
+      <input id="genderMale" type="radio" name="gender" value="Male"> <label for="genderMale">Male</label>
+      <input id="genderFemale" type="radio" name="gender" value="Female"> <label for="genderFemale">Female</label>
+      <input id="genderOther" type="radio" name="gender" value="Others"> <label for="genderOther">Others</label>
 
-      <label>Highest Education Pursued</label>
-      <input type="text" required>
+      <label for="education">Highest Education Pursued</label>
+      <input id="education" name="education" type="text" required>
 
-      <label>Email</label>
-      <input type="email" required>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
 
-      <label>Phone Number</label>
-      <input type="tel" pattern="[0-9]{10}" required>
+      <label for="phone">Phone Number</label>
+      <input id="phone" name="phone" type="tel" pattern="[0-9]{10}" required>
 
       <label>Upload Recent Passport Size Photo</label>
       <input type="file" name="Photo" accept="image/*" required>
