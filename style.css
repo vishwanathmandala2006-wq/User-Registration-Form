@@ -10,12 +10,13 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background-color: var(--cream);
   margin: 0;
-  padding: 0;
+  padding: 24px 16px;
 }
 
 .container {
-  width: 500px;
-  margin: 50px auto;
+  width: min(100%, 500px);
+  box-sizing: border-box;
+  margin: 26px auto;
   background-color: var(--light-teal);
   padding: 25px;
   border-radius: 10px;
@@ -45,11 +46,18 @@ input[type="email"],
 input[type="tel"],
 input[type="date"],
 input[type="file"] {
+  box-sizing: border-box;
+  width: 100%;
   padding: 8px;
   margin-top: 5px;
   border: 1px solid var(--dark-blue);
   border-radius: 4px;
   background-color: var(--cream);
+}
+
+input:focus {
+  outline: 3px solid rgba(200, 75, 49, 0.3);
+  border-color: var(--rust);
 }
 
 input[type="radio"] {
@@ -77,6 +85,30 @@ button[type="reset"] {
 
 button:hover {
   opacity: 0.9;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--dark-blue);
+  outline-offset: 2px;
+}
+
+@media (max-width: 540px) {
+  body {
+    padding: 8px;
+  }
+
+  .container {
+    margin: 8px auto;
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }
 
 #message {
