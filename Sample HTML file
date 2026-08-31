@@ -18,7 +18,7 @@
    <h1>Welcome to Vishu's HTML Page</h1>
    <p>This is a simple paragraph with new <strong>bold</strong> word and an <em>emphasized</em> word.</p>
    <h2>Links and Images</h2>
-   <p>Visit <a href="https://www.example.com" target="_blank">Example Website</a></p>
+   <p>Visit <a href="https://www.puppybro.in" target="_blank">Example Website</a></p>
    <img src="https://via.placeholder.com/150" alt="Sample Image">
    <h2>List Example</h2>
    <ul>
